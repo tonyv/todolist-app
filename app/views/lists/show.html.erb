@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<table>
+		<tr>
+			<th>Task</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+			<% @list.tasks.each do |task| %>
+			<tr>
+					<td><%= task.description %></td>
+			</tr>
+			<% end %>
+
+
+	</table>
+</p>
+
+<%= link_to 'Back', lists_path %>

@@ -1,0 +1,45 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+      
+  <b>Which list should I add this to?</b>
+  <div class="field">
+    <select name="task[list_name]">
+      <% List.all.each do |list| %>
+        <% if list.id == @task.list_id %>
+          <option value="<%= list.name %>" selected><%= list.name %></option>
+        <% else %>
+          <option value="<%= list.name %>"><%= list.name %></option>
+        <% end %>
+      <% end %>
+      <option id="newlist" value="New List">Create a New List</option> 
+    </select>
+  </div>
+
+  <!-- <div class="field">
+      <%= select_tag "task[list_name]", options_from_collection_for_select(List.find(:all), "id", "name", @task.list_id) %>
+  </div> -->
+
+  <!-- <div class="field">
+    <%= f.label :list_name %><br />
+    <%= f.text_field :list_name %>
+  </div> --> 
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
