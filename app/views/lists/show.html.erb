@@ -1,21 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-	<table>
-		<tr>
-			<th>Task</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-			<% @list.tasks.each do |task| %>
-			<tr>
-					<td><%= task.description %></td>
-			</tr>
-			<% end %>
-
-
-	</table>
+	<h1><%= @list.name %></h1>
+			<ol>
+				<% @list.tasks.each do |task| %>
+					<div class="delete_task">	
+						<li><%= task.description %></li>
+						<%= link_to 'Mark as Completed', task,
+							method: :delete, remote: true %>
+					</div>
+				<% end %>
+				</table>
+			</ol>
 </p>
 
 <%= link_to 'Back', lists_path %>

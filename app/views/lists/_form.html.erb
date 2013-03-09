@@ -13,16 +13,18 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, autofocus: true %>
   </div>
   
   <%= f.fields_for :tasks do |task_field| %>
     <%= render "task_fields", f: task_field %>
   <% end %>
-      <%= link_to_add_fields("Add", f, :tasks) %>
 
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= link_to_add_fields("Add Task", f, :tasks) %>
+  
+  <p>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </p>
 <% end %>

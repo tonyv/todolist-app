@@ -1,6 +1,6 @@
 TodolistApp::Application.routes.draw do
   
-  #resources :tasks
+  resources :tasks
   resources :lists
 
   root :to => 'lists#index'

@@ -79,6 +79,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to list_url(@task.list_id), notice: 'Task was successfully deleted.' }
       format.json { head :no_content }
+      format.js   { render nothing: true }
     end
   end
 end

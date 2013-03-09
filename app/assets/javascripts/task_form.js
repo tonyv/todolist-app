@@ -11,3 +11,4 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g")
   $(link).prev().after(content.replace(regexp, new_id));
 }
+
